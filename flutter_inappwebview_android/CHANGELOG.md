@@ -1,3 +1,7 @@
+## 1.1.4
+
+- Fixed "After dispose a InAppWebViewKeepAlive using InAppWebViewController.disposeKeepAlive. NullPointerException is thrown when main activity enter destroyed state." [#2025](https://github.com/pichillilorenzo/flutter_inappwebview/issues/2025)
+
 ## 1.1.3
 
 - Updated flutter_inappwebview_platform_interface version to ^1.3.0
