@@ -1,3 +1,8 @@
+## 6.1.7
+
+#### iOS Platform
+- Fix crash when call `getCopyBackForwardList()`
+
 ## 6.1.6
 
 #### Android Platform

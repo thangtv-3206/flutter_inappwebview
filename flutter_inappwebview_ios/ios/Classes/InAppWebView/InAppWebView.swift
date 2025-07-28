@@ -1638,31 +1638,26 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate,
         let jsWrapper = "(function(d) { var link = d.createElement('link'); link.rel='\(alternateStylesheet)stylesheet', link.type='text/css'; \(cssLinkAttributes) link.href = %@; d.head.appendChild(link); })(document);"
         injectDeferredObject(source: urlFile, withWrapper: jsWrapper, completionHandler: nil)
     }
-    
+
     public func getCopyBackForwardList() -> [String: Any] {
         let currentList = backForwardList
         let currentIndex = currentList.backList.count
         var completeList = currentList.backList
-        if currentList.currentItem != nil {
-            completeList.append(currentList.currentItem!)
+        if let currentItem = currentList.currentItem {
+            completeList.append(currentItem)
         }
         completeList.append(contentsOf: currentList.forwardList)
-        
-        var history: [[String: String]] = []
-        
-        for historyItem in completeList {
-            var historyItemMap: [String: String] = [:]
-            historyItemMap["originalUrl"] = historyItem.initialURL.absoluteString
-            historyItemMap["title"] = historyItem.title
-            historyItemMap["url"] = historyItem.url.absoluteString
-            history.append(historyItemMap)
-        }
-        
-        var result: [String: Any] = [:]
-        result["list"] = history
-        result["currentIndex"] = currentIndex
-        
-        return result;
+
+        return [
+            "list": completeList.map {
+                [
+                    "originalUrl": $0.initialURL.absoluteString,
+                    "title": $0.title,
+                    "url": $0.url.absoluteString
+                ]
+            },
+            "currentIndex": currentIndex
+        ]
     }
 
     @available(iOS 15.0, *)
