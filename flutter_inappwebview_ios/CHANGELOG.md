@@ -1,3 +1,7 @@
+## 1.1.4
+
+- Clear channel listeners on `disposeKeepAlive()`
+
 ## 1.1.3
 
 - Fix crash when call `getCopyBackForwardList()`

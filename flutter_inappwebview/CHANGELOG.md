@@ -1,3 +1,11 @@
+## 6.1.8
+
+#### iOS Platform
+- Clear channel listeners on `disposeKeepAlive()`
+
+#### Android Platform
+- Clear channel listeners on `disposeKeepAlive()`
+
 ## 6.1.7
 
 #### iOS Platform

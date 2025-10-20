@@ -2728,6 +2728,9 @@ class AndroidInAppWebViewController extends PlatformInAppWebViewController
     Map<String, dynamic> args = <String, dynamic>{};
     args.putIfAbsent('keepAliveId', () => keepAlive.id);
     await _staticChannel.invokeMethod('disposeKeepAlive', args);
+    channelBuffers.clearListener('com.pichillilorenzo/flutter_inappwebview_${keepAlive.id}');
+    channelBuffers.clearListener('com.pichillilorenzo/flutter_inappwebview_pull_to_refresh_${keepAlive.id}');
+    channelBuffers.clearListener('com.pichillilorenzo/flutter_inappwebview_find_interaction_${keepAlive.id}');
     _keepAliveMap[keepAlive] = null;
   }
 
