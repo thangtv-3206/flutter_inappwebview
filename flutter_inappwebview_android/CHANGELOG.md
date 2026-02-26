@@ -1,3 +1,7 @@
+## 1.1.6
+
+- Fix NullPointerException in `InAppWebView.onCreateInputConnection()` when hiding keyboard
+
 ## 1.1.5
 
 - Clear channel listeners on `disposeKeepAlive()`

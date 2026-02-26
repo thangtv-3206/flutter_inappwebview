@@ -1,3 +1,8 @@
+## 6.1.9
+
+#### Android Platform
+- Fix NullPointerException in `InAppWebView.onCreateInputConnection()` when hiding keyboard
+
 ## 6.1.8
 
 #### iOS Platform

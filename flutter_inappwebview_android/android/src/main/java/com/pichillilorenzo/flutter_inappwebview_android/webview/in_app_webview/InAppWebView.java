@@ -1528,7 +1528,7 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
   @Override
   public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
     InputConnection connection = super.onCreateInputConnection(outAttrs);
-    if (connection == null && !customSettings.useHybridComposition && containerView != null) {
+    if (connection == null && !customSettings.useHybridComposition && containerView != null && containerView.getHandler() != null) {
       // workaround to hide the Keyboard when the user click outside
       // on something not focusable such as input or a textarea.
       containerView
